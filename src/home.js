@@ -1,5 +1,5 @@
-import { handleLoad, handleCategoryClick, handleProductClick, handleLoadMore } from './src/js/handlers.js';
-import { refs } from './src/js/refs.js';
+import { handleLoad, handleCategoryClick, handleProductClick, handleLoadMore } from './js/handlers.js';
+import { refs } from './js/refs.js';
 
 document.addEventListener('DOMContentLoaded', handleLoad);
 refs.categoriesList.addEventListener('click', handleCategoryClick);

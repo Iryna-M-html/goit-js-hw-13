@@ -6,8 +6,8 @@ let currentProduct = null;
 export const openModal = (product) => {
   currentProduct = product;
   refs.modalContent.innerHTML = `
-    <h2>${product.name}</h2>
-    <img src="${product.image}" alt="${product.name}">
+    <h2>${product.title}</h2>
+    <img src="${product.thumbnail}" alt="${product.title}">
     <p>${product.description}</p>
     <button id="wishlist-btn">${isInStorage('wishlist', product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}</button>
     <button id="cart-btn">${isInStorage('cart', product.id) ? 'Remove from Cart' : 'Add to Cart'}</button>

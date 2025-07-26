@@ -1,5 +1,5 @@
 import { fetchProducts, fetchCategories, fetchProductById } from './products-api.js';
-import { renderCategories, renderProducts, renderEmptyMessage } from './render-functions.js';
+import { renderCategories, renderProducts, renderEmptyMessage } from './render-function.js';
 import { openModal } from './modal.js';
 import { refs } from './refs.js';
 import iziToast from 'izitoast';
@@ -8,7 +8,7 @@ let page = 1;
 let currentCategory = '';
 let totalProducts = 0;
 
-// === 1. Завантаження сторінки ===
+//  Завантаження сторінки ===
 export const handleLoad = async () => {
   try {
     const categories = await fetchCategories();
@@ -24,7 +24,7 @@ export const handleLoad = async () => {
   }
 };
 
-// === 2. Клік по категорії ===
+//  Клік по категорії ===
 export const handleCategoryClick = async (e) => {
   if (!e.target.classList.contains('category-btn')) return;
 
@@ -44,7 +44,7 @@ export const handleCategoryClick = async (e) => {
   }
 };
 
-// === 3. Клік по товару ===
+//  Клік по товару ===
 export const handleProductClick = async (e) => {
   const card = e.target.closest('.product-card');
   if (!card) return;
@@ -58,7 +58,7 @@ export const handleProductClick = async (e) => {
   }
 };
 
-// === 4. Завантаження наступної сторінки ===
+// 4. Завантаження наступної сторінки ===
 export const handleLoadMore = async () => {
   page += 1;
   try {
@@ -70,7 +70,7 @@ export const handleLoadMore = async () => {
   }
 };
 
-// === 5. Показ/приховування кнопки Load More ===
+//  5. Показ/приховування кнопки Load More ===
 const toggleLoadMoreButton = (productsLength) => {
   const totalLoaded = page * 12;
   if (productsLength < 12 || totalLoaded >= totalProducts) {
@@ -83,7 +83,7 @@ const toggleLoadMoreButton = (productsLength) => {
   }
 };
 
-// === 6. Підсвітка активної категорії ===
+// 6. Підсвітка активної категорії ===
 const highlightActiveCategory = (activeButton) => {
   document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
   activeButton.classList.add('active');
