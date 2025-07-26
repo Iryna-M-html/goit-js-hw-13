@@ -1,0 +1,2 @@
+import{g as a,r as c,a as n,b as o}from"./assets/render-function-DXCqIzc6.js";const m=t=>{let e=0,r=0;return t.forEach(s=>{e+=1,r+=s.price||0}),{totalItems:e,totalPrice:r}};document.addEventListener("DOMContentLoaded",()=>{const t=a("cart");t.length===0&&c(o.productsList,"Your cart is empty."),n(t,o.productsList);const{totalItems:e,totalPrice:r}=m(t);o.summaryItemsCount.textContent=e,o.summaryItemsPrice.textContent=Number(r.toFixed(2))});
+//# sourceMappingURL=cart.js.map

@@ -5,8 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/goit-js-hw-13/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
-    <script type="module" crossorigin src="/goit-js-hw-13/assets/styles-JE8YjOlG.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-13/assets/styles-CTxpv8u5.css">
+    <script type="module" crossorigin src="/goit-js-hw-13/cart.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-13/assets/render-function-DXCqIzc6.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-13/assets/render-function-CTxpv8u5.css">
   </head>
   <body>
     <header class="header">
@@ -42,14 +43,14 @@
         <li class="nav__item">
           <a class="nav__link nav__link--active" href="./cart.html">
             Cart
-            <span class="nav__count" data-cart-count>0</span>
+            <span class="nav__count" id="cart-count" data-cart-count>0</span>
             <!-- Динамічне число -->
           </a>
         </li>
         <li class="nav__item">
           <a class="nav__link {=$highlight-wishlist}" href="./wishlist.html">
             Wishlist
-            <span class="nav__count" data-wishlist-count>0</span>
+            <span class="nav__count" id="wishlist-count" data-wishlist-count>0</span>
             <!-- Динамічне число -->
           </a>
         </li>
@@ -99,15 +100,15 @@
               <ul class="cart-summary__list">
                 <li class="cart-summary__item">
                   <span class="cart-summary__label">Items:</span>
-                  <span class="cart-summary__value" data-count>0</span>
+                  <span class="cart-summary__value" id="cart-items" data-count>0</span>
                 </li>
                 <li class="cart-summary__item">
                   <span class="cart-summary__label">Total:</span>
-                  <span class="cart-summary__value" data-price>$0</span>
+                  <span class="cart-summary__value" id="cart-items-price"  data-price>$0</span>
                 </li>
                 <li class="cart-summary__item">
                   <span class="cart-summary__label">Shipping:</span>
-                  <span class="cart-summary__value">Free</span>
+                  <span class="cart-summary__value" id="cart-items-sh" >Free</span>
                 </li>
               </ul>
 
@@ -121,14 +122,15 @@
         </aside>
       </div>
     </section>
-    <div class="modal">
-  <div class="modal__content">
+    <div class="modal" id="modal">
+  <div class="modal__content"> <!-- цей дів перезаписується в modal.js  -->
     <button class="modal__close-btn" type="button"></button>
     <div class="modal-product"></div>
     <div class="modal-product__actions">
       <button
         class="modal-product__btn modal-product__btn--wishlist"
         type="button"
+        data-id="12345" 
       >
         Add to Wishlist
       </button>

@@ -1,0 +1,2 @@
+import{g as d,r as a,a as c,b as s}from"./assets/render-function-DXCqIzc6.js";import{f as i,o as n}from"./assets/modal-M3sC67ye.js";document.addEventListener("DOMContentLoaded",()=>{const t=d("wishlist");if(t.length===0){a(s.productsList,"Your wishlist is empty.");return}c(t,s.productsList)});s.productsList.addEventListener("click",async t=>{const r=t.target.closest(".product-card");if(!r)return;const e=r.dataset.id,o=await i(e);n(o)});
+//# sourceMappingURL=wishlist.js.map
