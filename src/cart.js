@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const { totalItems, totalPrice } = calculateTotal(cartItems);
   refs.summaryItemsCount.textContent = totalItems;
-  refs.summaryItemsPrice.textContent = Number(totalPrice.toFixed(2));
+  refs.summaryItemsPrice.textContent = `$${Number(totalPrice.toFixed(2))}`;
 });
 
 let currentProduct = null;
