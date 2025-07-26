@@ -13,12 +13,12 @@ export const openModal = (product) => {
     <button id="cart-btn">${isInStorage('cart', product.id) ? 'Remove from Cart' : 'Add to Cart'}</button>
   `;
 
-  refs.modal.classList.add('is-open');
+  refs.modal.classList.add('modal--is-open');
   document.addEventListener('keydown', handleEscapeKey);
 };
 
 export const closeModal = () => {
-  refs.modal.classList.remove('is-open');
+  refs.modal.classList.remove('modal--is-open');
   document.removeEventListener('keydown', handleEscapeKey);
 };
 
