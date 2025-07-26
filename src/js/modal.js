@@ -30,6 +30,8 @@ const handleWishlistClick = (e) => {
   toggleItemInStorage('wishlist', currentProduct.id);
   const btn = e.currentTarget;
   btn.textContent = isInStorage('wishlist', currentProduct.id) ? 'Remove from Wishlist' : 'Add to Wishlist';
+  const st = getFromStorage('wishlist');
+  refs.wishlistCounter.textContent = getFromStorage('wishlist').length;
 }
   
 const handleCartClick = (e) => {
