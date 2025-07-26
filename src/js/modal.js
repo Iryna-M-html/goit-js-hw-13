@@ -1,6 +1,6 @@
 //Імпорт функцій для роботи зі сховищем (localStorage) та DOM-елементів.
 
-import { getFromStorage, toggleItemInStorage } from './storage.js';
+import { getFromStorage, toggleItemInStorage, getItemsCount } from './storage.js';
 import { refs } from './refs.js';
 
 let currentProduct = null;// Змінна для збереження поточного товару, відкритого в модалці.
@@ -27,17 +27,17 @@ export const openModal = (product) => {
 };
 
 const handleWishlistClick = (e) => {
-  toggleItemInStorage('wishlist', currentProduct.id);
+  toggleItemInStorage('wishlist', currentProduct);
   const btn = e.currentTarget;
   btn.textContent = isInStorage('wishlist', currentProduct.id) ? 'Remove from Wishlist' : 'Add to Wishlist';
-  const st = getFromStorage('wishlist');
-  refs.wishlistCounter.textContent = getFromStorage('wishlist').length;
+  refs.wishlistCounter.textContent = getItemsCount('wishlist');
 }
   
 const handleCartClick = (e) => {
-  toggleItemInStorage('cart', currentProduct.id);
+  toggleItemInStorage('cart', currentProduct);
   const btn = e.currentTarget; 
   btn.textContent = isInStorage('cart', currentProduct.id) ? 'Remove from Cart' : 'Add to Cart';
+  refs.cartCounter.textContent = getItemsCount('cart');
 }
   
 export const closeModal = () => {
@@ -50,6 +50,6 @@ const handleEscapeKey = (e) => {
 };//Закриває модалку, якщо натиснута клавіша Escape
 
 function isInStorage(key, id) {
-  return getFromStorage(key).some(item => item === id);
+  return getFromStorage(key).some(item => item.id === id);
 }
 //Повертає true, якщо товар з таким id вже є у сховищі за ключем (wishlist, cart).

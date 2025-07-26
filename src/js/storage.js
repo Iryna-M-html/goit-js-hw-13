@@ -14,3 +14,7 @@ export const toggleItemInStorage = (key, item) => {
     : [...items, item];// Якщо нема — додаємо
   saveToStorage(key, newItems); // Оновлюємо сховище
 };
+
+export const getItemsCount = (key) => {
+  return getFromStorage(key).length;
+};

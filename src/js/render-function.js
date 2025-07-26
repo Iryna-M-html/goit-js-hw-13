@@ -13,7 +13,7 @@ export const renderProducts = (products, container) => {
         <img src="${product.thumbnail}" alt="${product.title}">
         <h3>${product.title}</h3>
         <p>${product.price} $</p>
-        <button type=button>Add to cart</button>
+        <!-- <button type=button>Add to cart</button> -->
       </li>
     `
   ).join('');

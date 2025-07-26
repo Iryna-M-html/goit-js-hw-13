@@ -1,36 +1,29 @@
 //Логіка сторінки Cart
-import { getFromStorage } from './storage.js';
-import { refs } from './refs.js';
-import { renderProducts, renderEmptyMessage } from './render-functions.js';
-import { fetchProductById } from './products-api.js';
-import { openModal } from './modal.js';
-import { calculateTotal } from './helpers.js';
+import { getFromStorage, getItemsCount } from './js/storage.js';
+import { refs } from './js/refs.js';
+import { renderProducts, renderEmptyMessage } from './js/render-function.js';
+import { fetchProductById } from './js/products-api.js';
+import { openModal } from './js/modal.js';
+import { calculateTotal } from './js/helpers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const cartItems = getFromStorage('cart');
-
   if (cartItems.length === 0) {
     renderEmptyMessage(refs.productsList, 'Your cart is empty.');
-    refs.totalContainer.innerHTML = '';
-    return;
+    // refs.totalContainer.innerHTML = '';
+    // return;
   }
 
   renderProducts(cartItems, refs.productsList);
 
   const { totalItems, totalPrice } = calculateTotal(cartItems);
-  refs.totalContainer.innerHTML = `
-    <p>Items: ${totalItems}</p>
-    <p>Total: $${totalPrice.toFixed(2)}</p>
-    <button class="pay-btn">Pay now</button>
-  `;
+  refs.summaryItemsCount.textContent = totalItems;
+  refs.summaryItemsPrice.textContent = Number(totalPrice.toFixed(2));
 });
-
-import { getFromStorage, saveToStorage, toggleItemInStorage } from './storage.js';
-import { refs } from './refs.js';
 
 let currentProduct = null;
 
-export const openModal = (product) => {
+export const openCartModal = (product) => {
   currentProduct = product;
 
   const isInCart = isInStorage('cart', product.id);

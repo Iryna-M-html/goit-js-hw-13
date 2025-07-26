@@ -1,6 +1,6 @@
 //Логіка сторінки Wishlist
 // Імпортуємо функції для роботи з localStorage
-import { getFromStorage, saveToStorage } from './js/storage.js';
+import { getFromStorage, saveToStorage, getItemsCount } from './js/storage.js';
 // Імпортуємо посилання на DOM-елементи
 import { refs } from './js/refs.js';
 // Імпортуємо функції рендеру

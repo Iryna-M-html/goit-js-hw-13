@@ -8,5 +8,8 @@ export const refs = {
   modalContent: document.querySelector('#modal .modal__content'), // Вміст модального вікна
   wishlistCounter: document.querySelector('#wishlist-count'),     // Лічильник "У бажаному"
   cartCounter: document.querySelector('#cart-count'),             // Лічильник "У кошику"
-  totalContainer: document.querySelector('#cart-summary')         // Блок підсумку кошика
+  totalContainer: document.querySelector('.cart-summary'),        // Блок підсумку кошика
+  summaryItemsCount:document.querySelector('#cart-items'),
+  summaryItemsPrice:document.querySelector('#cart-items-price')
 };
+
